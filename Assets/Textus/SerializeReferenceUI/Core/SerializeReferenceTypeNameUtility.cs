@@ -10,6 +10,7 @@ public static class SerializeReferenceTypeNameUtility
         var realType = Type.GetType($"{names.ClassName}, {names.AssemblyName}");
         return realType;
     }
+    
     public static (string AssemblyName, string ClassName) GetSplitNamesFromTypename(string typename)
     {
         if (string.IsNullOrEmpty(typename))
