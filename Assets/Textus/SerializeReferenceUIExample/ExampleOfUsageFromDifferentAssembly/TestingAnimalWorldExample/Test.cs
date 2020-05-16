@@ -10,7 +10,6 @@ public class Test : MonoBehaviour
     [SerializeReferenceUIRestrictionIncludeTypes(typeof(DogBase), typeof(IApe))]
     public IAnimal restrictedAnimals = default;  
     
-    
     [Header("Interface")]   
     [SerializeReference]    
     [SerializeReferenceButton]
