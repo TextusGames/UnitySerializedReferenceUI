@@ -20,7 +20,7 @@ public class SerializeReferenceButtonAttributeDrawer : PropertyDrawer
         var labelPosition = new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight);
         EditorGUI.LabelField(labelPosition, label);    
          
-        var typeRestrictions = SerializedReferenceUIBuiltInTypeRestrictions.GetAllBuiltInTypeRestrictions(fieldInfo);
+        var typeRestrictions = SerializedReferenceUIDefaultTypeRestrictions.GetAllBuiltInTypeRestrictions(fieldInfo);
         property.DrawSelectionButtonForManagedReference(position, typeRestrictions);
         
         EditorGUI.PropertyField(position, property, GUIContent.none, true);

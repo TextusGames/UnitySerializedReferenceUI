@@ -15,7 +15,7 @@ public class SerializeReferenceMenuAttributeDrawer : PropertyDrawer
     {
         EditorGUI.BeginProperty(position, label, property);
         
-        var typeRestrictions = SerializedReferenceUIBuiltInTypeRestrictions.GetAllBuiltInTypeRestrictions(fieldInfo);
+        var typeRestrictions = SerializedReferenceUIDefaultTypeRestrictions.GetAllBuiltInTypeRestrictions(fieldInfo);
         property.ShowContextMenuForManagedReferenceOnMouseMiddleButton(position, typeRestrictions);
         
         EditorGUI.PropertyField(position, property, true);

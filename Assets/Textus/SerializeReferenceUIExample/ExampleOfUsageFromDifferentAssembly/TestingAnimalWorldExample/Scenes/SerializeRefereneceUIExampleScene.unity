@@ -165,25 +165,23 @@ MonoBehaviour:
   classWithChildReferences:
   - integerValue: 0
     animals:
-      id: 0
-    animalInterfaces:
       id: 6
+    animalInterfaces:
+      id: 7
   references:
     version: 1
     00000000:
-      type: {class: BlackApe, ns: , asm: SerializedReferenceExample}
+      type: {class: GoldenApe, ns: , asm: SerializedReferenceExample}
       data:
-        age: 0
-        food: {fileID: 0}
-        numberOfBones: 0
-        Tag: 
+        age: 1231
+        food: {fileID: 1131539293}
+        numberOfBones: 33
+        Tag: dd
     00000001:
-      type: {class: RedCat, ns: , asm: SerializedReferenceExample}
+      type: {class: AnimalChild, ns: , asm: AmimalWorld}
       data:
-        age: 0
+        age: 3213
         food: {fileID: 0}
-        numberOfBones: 0
-        Tag: 
     00000002:
       type: {class: , ns: , asm: }
     00000003:
@@ -208,6 +206,13 @@ MonoBehaviour:
         numberOfBones: 0
         Tag: 
     00000006:
+      type: {class: BlackApe, ns: , asm: SerializedReferenceExample}
+      data:
+        age: 0
+        food: {fileID: 0}
+        numberOfBones: 0
+        Tag: 
+    00000007:
       type: {class: GreenFish, ns: , asm: SerializedReferenceExample}
       data:
         age: 0

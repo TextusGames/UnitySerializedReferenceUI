@@ -31,7 +31,7 @@ public static class SerializeReferenceInspectorButton
         GUI.backgroundColor = backgroundColor; 
          
         
-        var names = SerializeReferenceTypeNameUtility.GetSplitNamesFromTypename(property.managedReferenceFullTypename);
+        var names = ManagedReferenceUtility.GetSplitNamesFromTypename(property.managedReferenceFullTypename);
         var className = string.IsNullOrEmpty(names.ClassName) ? "Null (Assign)" : names.ClassName;
         var assemblyName = names.AssemblyName;
         if (GUI.Button(buttonPosition, new GUIContent(className, className + "  ( "+ assemblyName +" )" )))
