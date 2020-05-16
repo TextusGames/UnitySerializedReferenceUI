@@ -9,7 +9,7 @@ using UnityEngine;
 public static class SerializeReferenceGenericSelectionMenu
 {
     /// Purpose.
-    /// This is generic selection menu.
+    /// This is generic selection menu.   
     /// Filtering. 
     /// You can add substring filter here to filter by search string.
     /// As well ass type or interface restrictions.
@@ -22,72 +22,39 @@ public static class SerializeReferenceGenericSelectionMenu
         context.ShowAsContext();
     }  
     
-    
     private static void FillContextMenu(IEnumerable<Func<Type, bool>> enumerableFilters, GenericMenu contextMenu, SerializedProperty property)
     {
         var filters = enumerableFilters.ToList();// Prevents possible multiple enumerations
         
         // Adds "Make Null" menu command
-        contextMenu.AddItem(new GUIContent("Null"), false, () => MakeSerializedPropertyNull(property));
-        
-        // Find real type of managed reference
-        var realPropertyType = SerializeReferenceTypeNameUtility.GetRealTypeFromTypename(property.managedReferenceFieldTypename);
-        if (realPropertyType == null)
-        { 
-            Debug.LogError("Can not get type from");
-            return;
-        }
+        contextMenu.AddItem(new GUIContent("Null"), false, property.SetManagedReferenceToNull);
          
-        // Get and filter all appropriate types
-        var types = TypeCache.GetTypesDerivedFrom(realPropertyType);
-        foreach (var type in types)
-        { 
-            // Skips unity engine Objects (because they are not serialized by SerializeReference)
-            if(type.IsSubclassOf(typeof(UnityEngine.Object)))
-                continue;
-            // Skip abstract classes because they should not be instantiated
-            if(type.IsAbstract)    
-                continue;
-            // Filter types by provided filters if there is ones
-            if (FilterTypeByFilters(filters, type) == false) 
-                continue; 
-                
-            AddItemToContextMenu(type, contextMenu, property); 
-        } 
-    } 
-
-    private static void MakeSerializedPropertyNull(SerializedProperty serializedProperty)
-    {
-        serializedProperty.serializedObject.Update();
-        serializedProperty.managedReferenceValue = null;
-        serializedProperty.serializedObject.ApplyModifiedPropertiesWithoutUndo(); // undo is bugged for now
+        // Collects appropriate types
+        var appropriateTypes = property.GetAppropriateTypesForAssigningToManagedReference(filters);
+        
+        // Adds appropriate types to menu
+        foreach (var appropriateType in appropriateTypes)
+            AddItemToContextMenu(appropriateType, contextMenu, property); 
     }
     
     private static void AddItemToContextMenu(Type type, GenericMenu genericMenuContext, SerializedProperty property)
     {
         var assemblyName =  type.Assembly.ToString().Split('(', ',')[0];
         var entryName = type + "  ( " + assemblyName + " )";
-        genericMenuContext.AddItem(new GUIContent(entryName), false, AssignNewInstanceOfType, new AssignInstanceGenericMenuParameter(type, property));
+        genericMenuContext.AddItem(new GUIContent(entryName), false, AssignNewInstanceCommand, new GenericMenuParameterForAssignInstanceCommand(type, property));
     }
     
-    private static void AssignNewInstanceOfType(object objectGenericMenuParameter )
+    private static void AssignNewInstanceCommand(object objectGenericMenuParameter )
     {
-        var parameter = (AssignInstanceGenericMenuParameter) objectGenericMenuParameter;
+        var parameter = (GenericMenuParameterForAssignInstanceCommand) objectGenericMenuParameter;
         var type = parameter.Type;
         var property = parameter.Property;
-        var instance = Activator.CreateInstance(type); 
-        property.serializedObject.Update();
-        property.managedReferenceValue = instance;
-        property.serializedObject.ApplyModifiedPropertiesWithoutUndo(); // undo is bugged for now
-    }   
-    
-    private static  bool FilterTypeByFilters (IEnumerable<Func<Type,bool>> filters, Type type) =>
-        filters.All(f => f == null || f.Invoke(type));
+        property.AssignNewInstanceOfTypeToManagedReference(type);
+    }
 
-    
-    private readonly struct AssignInstanceGenericMenuParameter
+    private readonly struct GenericMenuParameterForAssignInstanceCommand
     {
-        public AssignInstanceGenericMenuParameter(Type type, SerializedProperty property)
+        public GenericMenuParameterForAssignInstanceCommand(Type type, SerializedProperty property)
         {
             Type = type;
             Property = property;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-public static class SerializedReferenceUIBuiltInTypeRestrictions
+public static class SerializedReferenceUIDefaultTypeRestrictions
 {
     public static IEnumerable<Func<Type, bool>> GetAllBuiltInTypeRestrictions(FieldInfo fieldInfo)
     {
