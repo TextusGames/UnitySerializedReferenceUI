@@ -4,11 +4,11 @@ The UI for Unity's SerealizedReference attribute. It allows to change the instan
 Project is provided under Mit license which you can find in inner main folder ("SerializedReferenceUI")
 
 Known limitations.
-Custom property drawer has no effect. Becouse property is drawn from custom attribute drawer custom property drawer is not applied (unity default behaviour).
+- Custom property drawer has no effect. Becouse property is drawn from custom attribute drawer custom property drawer is not applied (unity default behaviour).
 
 Known Issues of serialized reference: 
-Renaming used type can produce data loss and throws unknown managed type exception. This is unity's bug.
-SerializeReference itself is not working properly with Prefab Instances;
+- Renaming used type can produce data loss and throws unknown managed type exception. This is unity's bug.
+- SerializeReference itself is not working properly with Prefab Instances;
 
 Future plans:
 Possibly
