@@ -199,12 +199,9 @@ MonoBehaviour:
         numberOfBones: 0
         Tag: 
     00000005:
-      type: {class: RedApe, ns: , asm: SerializedReferenceExample}
+      type: {class: AnimalStruct, ns: , asm: SerializedReferenceExample}
       data:
-        age: 0
-        food: {fileID: 0}
-        numberOfBones: 0
-        Tag: 
+        name: 
     00000006:
       type: {class: BlackApe, ns: , asm: SerializedReferenceExample}
       data:
