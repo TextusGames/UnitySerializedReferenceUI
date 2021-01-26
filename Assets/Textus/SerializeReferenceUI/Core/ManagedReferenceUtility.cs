@@ -51,6 +51,9 @@ public static class ManagedReferenceUtility
             // Skip abstract classes because they should not be instantiated
             if (type.IsAbstract)
                 continue;
+			// Skip generic classes because they can not be instantiated
+            if (type.ContainsGenericParameters)
+                continue;
             // Skip types that has no public empty constructors (activator can not create them)    
             if (type.IsClass && type.GetConstructor(Type.EmptyTypes) == null) // Structs still can be created (strangely)
                 continue;
