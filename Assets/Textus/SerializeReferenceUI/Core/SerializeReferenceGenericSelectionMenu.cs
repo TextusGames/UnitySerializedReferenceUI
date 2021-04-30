@@ -9,18 +9,32 @@ using UnityEngine;
 public static class SerializeReferenceGenericSelectionMenu
 {
     /// Purpose.
-    /// This is generic selection menu.   
+    /// This is generic selection menu (will appear at position).
     /// Filtering. 
     /// You can add substring filter here to filter by search string.
     /// As well ass type or interface restrictions.
     /// As well as any custom restriction that is based on input type.
     /// And it will be performed on each Appropriate type found by TypeCache.
-    public static void ShowContextMenuForManagedReference(this SerializedProperty property, IEnumerable<Func<Type,bool>> filters = null)
+    public static void ShowContextMenuForManagedReference(this SerializedProperty property, Rect position, IEnumerable<Func<Type,bool>> filters = null)
     { 
         var context = new GenericMenu();
         FillContextMenu(filters, context, property);
+        context.DropDown(position);
+    }
+
+    /// Purpose.
+    /// This is generic selection menu (will appear at click position).
+    /// Filtering. 
+    /// You can add substring filter here to filter by search string.
+    /// As well ass type or interface restrictions.
+    /// As well as any custom restriction that is based on input type.
+    /// And it will be performed on each Appropriate type found by TypeCache.
+    public static void ShowContextMenuForManagedReference(this SerializedProperty property, IEnumerable<Func<Type, bool>> filters = null)
+    {
+        var context = new GenericMenu();
+        FillContextMenu(filters, context, property);
         context.ShowAsContext();
-    }  
+    }
     
     private static void FillContextMenu(IEnumerable<Func<Type, bool>> enumerableFilters, GenericMenu contextMenu, SerializedProperty property)
     {

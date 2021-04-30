@@ -35,7 +35,7 @@ public static class SerializeReferenceInspectorButton
         var className = string.IsNullOrEmpty(names.ClassName) ? "Null (Assign)" : names.ClassName;
         var assemblyName = names.AssemblyName;
         if (GUI.Button(buttonPosition, new GUIContent(className, className + "  ( "+ assemblyName +" )" )))
-            property.ShowContextMenuForManagedReference(filters);
+            property.ShowContextMenuForManagedReference(buttonPosition, filters);
         
         GUI.backgroundColor = storedColor;
         EditorGUI.indentLevel = storedIndent;
