@@ -10,6 +10,17 @@
         "editor",
         "utility"
     ],
+    "samples":
+    [
+        {
+            "displayName": "Animal world Assembly",
+            "path": "Samples~/ExampleAnimalWorldAssembly"
+        },
+        {
+            "displayName": "Usage from different Assembly",
+            "path": "Samples~/ExampleOfUsageFromDifferentAssembly"
+        }
+    ],
     "author": 
     {
         "name": "TextusGames",
