@@ -16,3 +16,28 @@ Future plans:
 Possibly
 - copy / paste.
 - menu with searchbar.
+
+## Installation
+Use the + inside the Package Manager window and add this URL:
+```json
+"com.textus-games.serialized-reference-ui": "https://github.com/popcron/UnitySerializedReferenceUI.git"
+```
+Or add id to your `packages.json` file manually (located inside the project's Packages folder).
+
+## Example
+![Woah UI woah woah!!!](https://cdn.discordapp.com/attachments/784916261871550494/847185548632260628/unknown.png)
+```cs
+[Serializable]
+public class Slot
+{
+    [SerializeReference, SerializeReferenceButton]
+    public Item item;
+}
+
+[Serializable]
+public class Item {}
+public class Metal : Item {}
+public class Wood : Item {}
+```
+
+For more examples, this package contains two Samples that can be imported into your project.
