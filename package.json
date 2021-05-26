@@ -1,0 +1,18 @@
+{
+    "name": "com.textus-games.serialized-reference-ui",
+    "version": "1.0.0",
+    "displayName": "Serialize Reference UI",
+    "description": "The UI for Unity's SerealizedReference attribute. It allows changing the instance type of a field right in the editor.",
+    "unity": "2019.3",
+    "keywords":
+    [
+        "serialization",
+        "editor",
+        "utility"
+    ],
+    "author": 
+    {
+        "name": "TextusGames",
+        "url": "https://github.com/TextusGames"
+    }
+}
