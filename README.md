@@ -21,11 +21,14 @@ Possibly
 Use the + inside the Package Manager window and add this URL:
 
 <img width="464" alt="image" src="https://user-images.githubusercontent.com/34438607/160235251-c6af2ee5-694d-4b38-9ab4-0ddca73f686b.png">
-
+```json
+"https://github.com/TextusGames/UnitySerializedReferenceUI.git"
+```
+Or add id to your `packages.json` file manually (located inside the project's Packages folder).
 ```json
 "com.textus-games.serialized-reference-ui": "https://github.com/TextusGames/UnitySerializedReferenceUI.git"
 ```
-Or add id to your `packages.json` file manually (located inside the project's Packages folder).
+
 
 ## Example
 ![Woah UI woah woah!!!](https://cdn.discordapp.com/attachments/784916261871550494/847185548632260628/unknown.png)
