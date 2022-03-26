@@ -19,6 +19,7 @@ Possibly
 
 ## Installation
 Use the + inside the Package Manager window and add this URL:
+
 https://github.com/TextusGames/UnitySerializedReferenceUI.git
 <img width="464" alt="image" src="https://user-images.githubusercontent.com/34438607/160235251-c6af2ee5-694d-4b38-9ab4-0ddca73f686b.png">
 
