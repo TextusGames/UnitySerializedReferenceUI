@@ -19,10 +19,12 @@ Possibly
 
 ## Installation
 Use the + inside the Package Manager window and add this URL:
-
-<img width="464" alt="image" src="https://user-images.githubusercontent.com/34438607/160235251-c6af2ee5-694d-4b38-9ab4-0ddca73f686b.png">
-
 https://github.com/TextusGames/UnitySerializedReferenceUI.git
+<img width="464" alt="image" src="https://user-images.githubusercontent.com/34438607/160235251-c6af2ee5-694d-4b38-9ab4-0ddca73f686b.png">
+<img width="230" alt="image" src="https://user-images.githubusercontent.com/34438607/160235894-8a1e2bd9-fe93-463d-aa6f-6d4634cc7457.png">
+
+
+
 
 Or add id to your `packages.json` file manually (located inside the project's Packages folder).
 ```json
