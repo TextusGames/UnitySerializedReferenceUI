@@ -19,6 +19,9 @@ Possibly
 
 ## Installation
 Use the + inside the Package Manager window and add this URL:
+
+![image](https://user-images.githubusercontent.com/34438607/160235117-ad528c60-0198-49b3-a0fc-d744ef5ac61b.png)
+
 ```json
 "com.textus-games.serialized-reference-ui": "https://github.com/popcron/UnitySerializedReferenceUI.git"
 ```
